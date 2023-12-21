@@ -1,0 +1,11 @@
+C:\projects\BlazorCqrsExample\SharedKernel\bin\Debug\net8.0\SharedKernel.deps.json
+C:\projects\BlazorCqrsExample\SharedKernel\bin\Debug\net8.0\SharedKernel.dll
+C:\projects\BlazorCqrsExample\SharedKernel\bin\Debug\net8.0\SharedKernel.pdb
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\SharedKernel.AssemblyInfoInputs.cache
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\SharedKernel.AssemblyInfo.cs
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\SharedKernel.csproj.CoreCompileInputs.cache
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\SharedKernel.dll
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\refint\SharedKernel.dll
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\SharedKernel.pdb
+C:\projects\BlazorCqrsExample\SharedKernel\obj\Debug\net8.0\ref\SharedKernel.dll

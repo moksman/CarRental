@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "emYt/8YKCV6FWBQPdGrbp3Vz5R0zFjDFoa6tDQbFYXmdeOdR8RXm22B4LQMnDI3YRiYZeVUbHEtR6pI8zcg11g==",
+  "success": true,
+  "projectFilePath": "C:\\projects\\CarRental\\src\\CarRental.Application\\CarRental.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
