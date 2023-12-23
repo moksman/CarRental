@@ -1,0 +1,65 @@
+﻿@page "/detail/{id:int}"
+
+@using System.Threading
+@using CarRental.Application.UseCases.Car.Get
+@using CarRental.Infrastructure.Data
+
+@attribute [StreamRendering]
+@inject IMediator Mediator
+
+<PageTitle>Cars</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates showing data.</p>
+
+
+@if (!(Cars?.Any() ?? false))
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Cars)
+            {
+                <tr>
+                    <td>@car.Brand</td>
+                    <td>@car.Model</td>
+                    <td>@car.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    [Parameter]
+    public int? CityId { get; set; }
+
+    private IEnumerable<Car<int>>? Cars;
+
+    public DateTime date;
+    // [Inject]
+    // protected Mediator Mediator { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // if (CityId is null)
+        //     Cars = await Mediator.Send(new GetAllCarQuery<int>());
+        // else
+        //     Cars = await Mediator.Send(new GetCarByCityQuery<int>(CityId.Value));
+
+    }
+
+
+}
