@@ -13,12 +13,6 @@
         <h1>My awesome website</h1>
         <h2>Look at this website and bask in its amazing glory!</h2>
                 
-        <AutoComplete @bind-Value="CityName"
-            TItem="City<int>"
-            DataProvider="CityDataProvider"
-            PropertyName="Name"                      
-            Placeholder="Search a city..."
-            OnChanged="(City<int> city) => OnAutoCompleteChanged(city)" />
                 
             <Button Class="btn btn-dark m-1" @onclick="@(() => NavigationManager.NavigateTo($"car/cz/{currentCity.Id}"))">Search</Button>
         
@@ -49,21 +43,9 @@
 
     // protected override async Task OnInitializedAsync()
     // {
-    //     cities = await Mediator.Send(new GetAllCityQuery<int>()); // call a service or an API to pull the customers
+    //  if (cities is null) 
+    //      cities = await Mediator.Send(new GetAllCityQuery<int>()); 
+
     // }
-
-    private async Task<AutoCompleteDataProviderResult<City<int>>> CityDataProvider(AutoCompleteDataProviderRequest<City<int>> request)
-    {
-        if (cities is null) // pull customers only one time for client-side autocomplete
-            cities = await Mediator.Send(new GetAllCityQuery<int>()); // call a service or an API to pull the customers
-
-        return await Task.FromResult(request.ApplyTo(cities.OrderBy(c => c.Name)));
-    }
-
-
-    private void OnAutoCompleteChanged(City<int> city)
-    {
-        currentCity = city;
-    }
 
 }

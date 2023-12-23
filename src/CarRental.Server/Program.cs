@@ -20,7 +20,6 @@ builder.Services
     .ConfigurePersistance<int>(builder.Configuration)
     .AddData<int>();
 
-builder.Services.AddBlazorBootstrap();
 
 var app = builder.Build();
 
