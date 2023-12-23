@@ -6,6 +6,7 @@ using CarRental.Infrastructure.Data.Queries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Data.Common;
 
 namespace CarRental.Infrastructure;
 
@@ -44,39 +45,6 @@ public static class DependencyInjection
         dbcontext.Database.EnsureDeleted();
         dbcontext.Database.EnsureCreated();
 
-     
-        dbcontext.Cars.AddRange(
-            new Car<int>
-            {
-                Brand = "Volvo",
-                Model = "XC90",
-                Description = "Genom att addera elkraft får du en laddhybrid som tar hänsyn till morgondagen, utan att kompromissa med körupplevelsen."
-            },
-            new Car<int>
-            {
-                Brand = "Renault",
-                Model = "Clio",
-                Description = "Easy Link 7” –multimediasystem med 7-tums högupplöst pekskärm – kompatibel med Android Auto™ och Apple CarPlay – sex högtalare, Bluetooth®, två USB-uttag, ett AUX-uttag Manuell luftkonditionering Aktiv panikbromsning med fotgängar- och cyklistavkänning (AEBS City + Inter Urbain) Filbytesvarnare och Filhållarassistans"
-            },
-            new Car<int>
-            {
-                Brand = "BMW",
-                Model = "M4",
-                Description = "Lyssna på det här: 550 hästkrafter, elektrisk xDrive, och 0-100 km/h på 3,9 sekunder. BMW i4 är helt enkelt elbilen för dig som älskar att köra. Här får du uppleva sportig prestanda i förstklassig komfort. Bakhjuls- eller fyrhjulsdrivet väljer du själv. Med 590 kilometers räckvidd och bagageutrymme som en halvkombi får du en flexibel kompanjon på långresan. Klara, färdiga, njut!"
-            },
-            new Car<int>
-            {
-                Brand = "Audi",
-                Model = "Q4",
-                Description = "Interiören i Audi Q4 e-tron präglas av innovativ teknik, sportighet och funktionalitet – som Audi virtual cockpit som ingår som standard."
-            },
-            new Car<int>
-            {
-                Brand = "Peugeot",
-                Model = "3008",
-                Description = "Upptäck Peugeot 3008 och dess unika revolutionerande stil. Med Peugeot i-Cockpit® och innovativ teknik i framkant förstärks ditt välbefinnande, din säkerhet och din komfort. "
-            }
-            );
 
         dbcontext.Cities.AddRange(
             new City<int>
@@ -94,10 +62,58 @@ public static class DependencyInjection
             new City<int>
             {
                 Name = "Pardubice",
+            });
+
+        dbcontext.Cars.AddRange(
+            new Car<int>
+            {
+                CityId = 1,
+                Brand = "Audi",
+                Model = "RS6",
+                Description = "Easy Link 7” –multimediasystem med 7-tums högupplöst pekskärm – kompatibel med Android Auto™ och Apple CarPlay – sex högtalare, Bluetooth®, två USB-uttag, ett AUX-uttag Manuell luftkonditionering Aktiv panikbromsning med fotgängar- och cyklistavkänning (AEBS City + Inter Urbain) Filbytesvarnare och Filhållarassistans",
+                Image = "/images/cars/audi_rs6.webp"
+            },
+            new Car<int>
+            {
+                CityId = 1,
+                Brand = "Audi",
+                Model = "RS8",
+                Description = "Lyssna på det här: 550 hästkrafter, elektrisk xDrive, och 0-100 km/h på 3,9 sekunder. BMW i4 är helt enkelt elbilen för dig som älskar att köra. Här får du uppleva sportig prestanda i förstklassig komfort. Bakhjuls- eller fyrhjulsdrivet väljer du själv. Med 590 kilometers räckvidd och bagageutrymme som en halvkombi får du en flexibel kompanjon på långresan. Klara, färdiga, njut!",
+                Image = "/images/cars/audi_rs8.webp"
+            },
+            new Car<int>
+            {
+                CityId = 1,
+                Brand = "BENTLEY",
+                Model = "CONTINENTAL GT",
+                Description = "Genom att addera elkraft får du en laddhybrid som tar hänsyn till morgondagen, utan att kompromissa med körupplevelsen.",
+                Image = "/images/cars/BENTLEY_CONTINENTAL_GT.webp"
+            },
+            new Car<int>
+            {
+                CityId = 1,
+                Brand = "lambo",
+                Model = "urus",
+                Description = "Interiören i Audi Q4 e-tron präglas av innovativ teknik, sportighet och funktionalitet – som Audi virtual cockpit som ingår som standard.",
+                Image = "/images/cars/lambo_urus.webp"
+            },
+            new Car<int>
+            {
+                CityId = 1,
+                Brand = "Mercedes",
+                Model = "G63",
+                Description = "Upptäck Peugeot 3008 och dess unika revolutionerande stil. Med Peugeot i-Cockpit® och innovativ teknik i framkant förstärks ditt välbefinnande, din säkerhet och din komfort. ",
+                Image = "/images/cars/mercedes_g63.webp"
+            },
+            new Car<int>
+            {
+                CityId = 1,
+                Brand = "Porsche",
+                Model = "911",
+                Description = "Upptäck Peugeot 3008 och dess unika revolutionerande stil. Med Peugeot i-Cockpit® och innovativ teknik i framkant förstärks ditt välbefinnande, din säkerhet och din komfort. ",
+                Image = "/images/cars/Porsche_911.webp"
             }
             );
-
-
 
         dbcontext.SaveChanges();
 

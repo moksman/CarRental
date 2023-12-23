@@ -1,0 +1,15 @@
+﻿.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: row;*/
+    /*align-items: stretch;*/ 
+    gap: 10px 30px;
+}
+
+.car-card
+{
+    height: 300px
+
+}
+
+

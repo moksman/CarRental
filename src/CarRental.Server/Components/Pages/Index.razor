@@ -20,7 +20,7 @@
             Placeholder="Search a city..."
             OnChanged="(City<int> city) => OnAutoCompleteChanged(city)" />
                 
-            <Button Class="btn btn-dark m-1" @onclick="@(() => NavigationManager.NavigateTo($"car/prague/{currentCity.Id}"))">Search</Button>
+            <Button Class="btn btn-dark m-1" @onclick="@(() => NavigationManager.NavigateTo($"car/cz/{currentCity.Id}"))">Search</Button>
         
     </div>
 
