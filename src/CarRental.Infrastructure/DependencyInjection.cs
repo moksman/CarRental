@@ -71,31 +71,42 @@ public static class DependencyInjection
                 Brand = "Audi",
                 Model = "RS6",
                 Description = "Easy Link 7” –multimediasystem med 7-tums högupplöst pekskärm – kompatibel med Android Auto™ och Apple CarPlay – sex högtalare, Bluetooth®, två USB-uttag, ett AUX-uttag Manuell luftkonditionering Aktiv panikbromsning med fotgängar- och cyklistavkänning (AEBS City + Inter Urbain) Filbytesvarnare och Filhållarassistans",
-                Image = "/images/cars/audi_rs6.webp"
+                Image = "/images/cars/audi_rs6.webp",
+                Type = Vehicule.SPORT,
+                Transmission = Transmission.AUTOMATIC,
+                Price = 100,
             },
             new Car<int>
             {
                 CityId = 1,
                 Brand = "Audi",
                 Model = "RS8",
-                Description = "Lyssna på det här: 550 hästkrafter, elektrisk xDrive, och 0-100 km/h på 3,9 sekunder. BMW i4 är helt enkelt elbilen för dig som älskar att köra. Här får du uppleva sportig prestanda i förstklassig komfort. Bakhjuls- eller fyrhjulsdrivet väljer du själv. Med 590 kilometers räckvidd och bagageutrymme som en halvkombi får du en flexibel kompanjon på långresan. Klara, färdiga, njut!",
-                Image = "/images/cars/audi_rs8.webp"
+                Description = "Lyssna på det här: 550 hästkrafter, elektrisk xDrive, och 0-100 km/h på 3,9 sekunder. BMW i4 är helt enkelt elbilen för dig som älskar att köra. Här får du uppleva sportig prestanda i förstklassig komfort. Bakhjuls- eller fyrhjulsdrivet väljer du själv.",
+                Image = "/images/cars/audi_rs8.webp",
+                Type = Vehicule.SPORT,
+                Transmission = Transmission.AUTOMATIC,
+                Price = 120,
             },
             new Car<int>
             {
                 CityId = 1,
                 Brand = "BENTLEY",
                 Model = "CONTINENTAL GT",
-                Description = "Genom att addera elkraft får du en laddhybrid som tar hänsyn till morgondagen, utan att kompromissa med körupplevelsen.",
-                Image = "/images/cars/BENTLEY_CONTINENTAL_GT.webp"
+                Description = "Genom att addera elkraft får du en laddhybrid som tar hänsyn till morgondagen, utan att kompromissa med körupplevelsen. Med 590 kilometers räckvidd och bagageutrymme som en halvkombi får du en flexibel kompanjon på långresan. Klara, färdiga, njut!",
+                Image = "/images/cars/BENTLEY_CONTINENTAL_GT.webp",
+                Type = Vehicule.COUPE,
+                Transmission = Transmission.AUTOMATIC
             },
             new Car<int>
             {
                 CityId = 1,
                 Brand = "lambo",
                 Model = "urus",
-                Description = "Interiören i Audi Q4 e-tron präglas av innovativ teknik, sportighet och funktionalitet – som Audi virtual cockpit som ingår som standard.",
-                Image = "/images/cars/lambo_urus.webp"
+                Description = "Interiören i Audi Q4 e-tron präglas av innovativ teknik, sportighet och funktionalitet – som Audi virtual cockpit som ingår som standard. Med 590 kilometers räckvidd och bagageutrymme som en halvkombi får du en flexibel kompanjon på långresan. Klara, färdiga, njut!",
+                Image = "/images/cars/lambo_urus.webp",
+                Type = Vehicule.SPORT,
+                Transmission = Transmission.AUTOMATIC,
+                Price = 150,
             },
             new Car<int>
             {
@@ -103,15 +114,21 @@ public static class DependencyInjection
                 Brand = "Mercedes",
                 Model = "G63",
                 Description = "Upptäck Peugeot 3008 och dess unika revolutionerande stil. Med Peugeot i-Cockpit® och innovativ teknik i framkant förstärks ditt välbefinnande, din säkerhet och din komfort. ",
-                Image = "/images/cars/mercedes_g63.webp"
+                Image = "/images/cars/mercedes_g63.webp",
+                Type = Vehicule.SPORT,
+                Transmission = Transmission.MANUAL,
+                Price = 180,
             },
             new Car<int>
             {
                 CityId = 1,
                 Brand = "Porsche",
                 Model = "911",
-                Description = "Upptäck Peugeot 3008 och dess unika revolutionerande stil. Med Peugeot i-Cockpit® och innovativ teknik i framkant förstärks ditt välbefinnande, din säkerhet och din komfort. ",
-                Image = "/images/cars/Porsche_911.webp"
+                Description = "Upptäck Peugeot 3008 och dess unika revolutionerande stil. Med Peugeot i-Cockpit® och innovativ teknik i framkant förstärks ditt välbefinnande, din säkerhet och din komfort. Med 590 kilometers räckvidd och bagageutrymme som en halvkombi får du en flexibel kompanjon på långresan. Klara, färdiga, njut!",
+                Image = "/images/cars/Porsche_911.webp",
+                Type = Vehicule.SPORT,
+                Transmission = Transmission.MANUAL,
+                Price = 200,
             }
             );
 

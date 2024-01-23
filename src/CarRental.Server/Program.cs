@@ -2,6 +2,7 @@ using CarRental.Application;
 using CarRental.Core;
 using CarRental.Infrastructure;
 using CarRental.Server.Components;
+using Microsoft.FluentUI.AspNetCore.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services
     .ConfigurePersistance<int>(builder.Configuration)
     .AddData<int>();
 
+builder.Services.AddFluentUIComponents();
 
 var app = builder.Build();
 
