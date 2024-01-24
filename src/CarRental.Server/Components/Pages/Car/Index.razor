@@ -15,46 +15,46 @@
 <PageTitle>Cars</PageTitle>
 
 @* <div class="container-fluid" style="padding-top: 50px;"> *@
-<div class="container-fluid content hero">
+<div class="container-fluid content">
     @if (!(Cars?.Any() ?? false))
     {
         <p><em>Loading...</em></p>
     }
     else
     {
-        @* <div class="content"> *@
-        <div >
-            <sidebar class="bg-white">
-                some text
-            </sidebar>
-            <main>
-                    <div class="wrapper_inner d-flex flex-row flex-wrap">
-                        @foreach (var car in Cars)
-                        {
-                            <div class="d-flex flex-column border rounded m-2 bg-white" style="min-width: 350px; max-width: 350px">
-
-                                <div class=" mb-auto p-2">
-                                    <div class="text-center">
-                                        <img src="@car.Image" class="img-fluid" alt="placeholder" />
-                                    </div>
-                                    <div>@car.Brand</div>
-                                    <div>@car.Model</div>
-                                    <div>@car.Description</div>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-bottom p-2">
-                                    <a href="" class="btn btn-primary">Book</a>
-
-                                    <span>@car.Price $/day</span>
-
-                                </div>
-
-                            </div>
-
-                        }
-                    </div>
-            </main>
+        <div class="d-flex justify-content-center bg-success">
+            <div>
+            asdfasfd
+            </div>
         </div>
+      
+        <div class="d-flex flex-row flex-wrap">
+            
+            @foreach (var car in Cars)
+            {
+                <div class="d-flex flex-column border rounded m-2 bg-white" style="min-width: 350px; max-width: 350px">
+
+                    <div class=" mb-auto p-2">
+                        <div class="text-center">
+                            <img src="@car.Image" class="img-fluid" alt="placeholder" />
+                        </div>
+                        <div>@car.Brand</div>
+                        <div>@car.Model</div>
+                        <div>@car.Description</div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-bottom p-2">
+                        <a href="" class="btn btn-primary">Book</a>
+
+                        <span>@car.Price $/day</span>
+
+                    </div>
+
+                </div>
+
+            }
+        </div>
+         
 
     }
 </div>
