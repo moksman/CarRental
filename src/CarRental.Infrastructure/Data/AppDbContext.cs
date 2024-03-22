@@ -1,17 +1,21 @@
-﻿using CarRental.Core.Model;
+﻿using CarRental.Core.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Infrastructure.Data
 {
-    internal class AppDbContext<TId> : DbContext
+    internal class AppDbContext : DbContext
     {
         //todo: set to Public
-        public AppDbContext(DbContextOptions<AppDbContext<TId>> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         { }
 
-        public DbSet<Car<TId>> Cars { get; set; }
 
-        public DbSet<City<TId>> Cities { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Car> Cars { get; set; }
+
+
+        public DbSet<User> Users { get; set; }
+
 
         //public AppDbContext(DbContextOptionsBuilder<AppDbContext<TId>> options)
         //{
@@ -22,8 +26,11 @@ namespace CarRental.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car<TId>>().ToTable("Car");
-            modelBuilder.Entity<Car<TId>>().ToTable("City");
+            //modelBuilder.Entity<City>().ToTable("City");
+            //modelBuilder.Entity<Car>().ToTable("Car");            
+            //modelBuilder.Entity<User>().ToTable("User");
         }
+
+       
     }
 }

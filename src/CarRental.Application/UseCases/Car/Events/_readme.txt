@@ -1,0 +1,1 @@
+Use outbox pattern to gather and execute the events https://www.youtube.com/watch?v=XALvnX7MPeo

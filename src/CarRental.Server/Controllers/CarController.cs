@@ -1,13 +1,15 @@
-﻿using CarRental.Application.UseCases.Car.Create;
-using CarRental.Application.UseCases.Car.Get;
-using CarRental.Core.Model;
+﻿using CarRental.Application.UseCases.Car;
+using CarRental.Application.UseCases.Car.Commands.Create;
+using CarRental.Application.UseCases.Car.Queries.Get;
+using CarRental.Application.UseCases.Dto;
+using CarRental.Core.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CarController : ControllerBase
     {
         private readonly ILogger<CarController> _logger;
@@ -17,18 +19,22 @@ namespace CarRental.Server.Controllers
             _logger = logger;
             _mediator = mediator;
         }
+
+        //add imemorycache to method Get
+
         [HttpGet(Name = "GetCar")]
-        public async Task<IEnumerable<Car<int>>> Get()
+        public async Task<IEnumerable<CarDto>> Get()
         {
-            var request = new GetAllCarQuery<int>();
+            var request = new GetAllCarQuery();
             var response = await _mediator.Send(request);
+
             return response;
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] Car<int> car)
+        public async Task<ActionResult> Create([FromBody] CarDto car)
         {
-            var command = new CreateCarCommand<int> { NewCar = car };
+            var command = new CreateCarCommand(car);
             var result = await _mediator.Send(command);
             return Ok(result);
 

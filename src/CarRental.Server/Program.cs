@@ -1,4 +1,4 @@
-using CarRental.Application;
+using CarRental.Application.Configuration;
 using CarRental.Core;
 using CarRental.Infrastructure;
 using CarRental.Server.Components;
@@ -6,7 +6,8 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers();
 
 // Add services to the container.
 builder.Services
@@ -14,12 +15,16 @@ builder.Services
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services
+    .AddMemoryCache();
+    //.AddResponseCompression(o => { o.EnableForHttps = true; });
+
 //Configure CarRental application specific features
 builder.Services
-    .ConfigureDomainServices<int>()
-    .ConfigureApplicationLayer<int>()
-    .ConfigurePersistance<int>(builder.Configuration)
-    .AddData<int>();
+    .ConfigureDomainServices()
+    .ConfigureApplicationLayer()
+    .ConfigurePersistance(builder.Configuration)
+    .AddData();
 
 builder.Services.AddFluentUIComponents();
 
@@ -37,10 +42,11 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-app.UseAntiforgery();
+app
+    //.UseResponseCompression() // * Compression, read to mitigate security issues BREACH, CRIME https://www.milanjovanovic.tech/blog/response-compression-in-aspnetcore
+    .UseHttpsRedirection()
+    .UseStaticFiles()
+    .UseAntiforgery();
 
 app
     .MapRazorComponents<App>()

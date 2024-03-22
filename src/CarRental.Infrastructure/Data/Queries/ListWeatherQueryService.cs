@@ -1,24 +1,27 @@
-﻿using CarRental.Application.UseCases.Car.Get;
-using CarRental.Core.Model;
+﻿using CarRental.Application.UseCases.Car.Queries.Get;
+using CarRental.Application.UseCases.Dto;
+using CarRental.Core.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Infrastructure.Data.Queries;
 
 //Infrastructor services, high speed t-sql queris direct agains the db
-internal class ListCarQueryService<TId> : IListCarQueryService<TId>
+internal class ListCarQueryService : IListCarQueryService
 {
-    private readonly AppDbContext<TId> _db;
-    public ListCarQueryService(AppDbContext<TId> context)
+    private readonly AppDbContext _db;
+    public ListCarQueryService(AppDbContext context)
     {
         _db = context;
+
     }
 
-    public async Task<IList<Car<TId>>> ListAsync()
-    {
-        var result = await _db.Cars.FromSqlRaw("SELECT * FROM Car")
-            .Select(c => new Car<TId> { Id = c.Id, Brand = c.Brand, Model = c.Model, Description = c.Description, Image = c.Image })
-            .ToListAsync<Car<TId>>();
 
-        return result;
+    public async Task<IList<CarDto>> ListAsync()
+    {
+        //var result = await _db.Cars.FromSqlRaw("SELECT * FROM Car")
+        //    .Select(c => Car.Create(c.Id, c.CityId, c.Brand, c.Model, c.Description, c.Image, c.NoOfSeats, c.Price, c.Type, c.Transmission))
+        //    .ToListAsync<Car>();
+
+        return null;
     }
 }

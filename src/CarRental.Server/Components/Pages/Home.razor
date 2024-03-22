@@ -1,0 +1,88 @@
+﻿@page "/"
+
+@namespace CarRental.Server.Components.Pages
+@using CarRental.Application.UseCases.City.Queries.Get
+@using CarRental.Application.UseCases.Dto
+@using CarRental.Core.Domain
+@rendermode InteractiveServer
+@* @attribute [StreamRendering] *@
+@inject NavigationManager NavigationManager
+@inject IMediator Mediator
+
+
+<PageTitle>Home</PageTitle>
+
+<div class="container-fluid hero">
+
+    @* @if (!(cities?.Any() ?? false))
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {   
+ *@
+    <div>
+        <h1>My awesome website</h1>
+        <h2>Look at this website and bask in its amazing glory!</h2>
+        <!-- 
+            set focus on fluent component 
+            https://blazor-university.com/javascript-interop/calling-javascript-from-dotnet/passing-html-element-references/
+        -->
+        <div>
+            <FluentAutocomplete 
+                TOption="CityDto"
+                OnOptionsSearch="@OnSearchAsync"
+                OptionText="@(item => item.Name)"
+                @bind-SelectedOptions="@cities"  />
+
+            <Button Class="btn btn-dark m-1" @onclick="@(() => NavigationManager.NavigateTo($"car?city={string.Join(",", cities.Select(c => c.Id))}"))">Search</Button>
+        </div>
+   
+    </div>
+    @* } *@
+</div>
+
+
+<style>
+    .control-wrapper {
+        margin: 30px 40px;
+    }
+
+    .example-label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+</style>
+
+
+@code {
+
+
+    // public string CityName { get; set; }
+    // public City currentCity;
+    
+    public IEnumerable<CityDto> cities;
+    IEnumerable<CityDto> SelectedItems = Array.Empty<CityDto>();
+    
+    private async Task OnSearchAsync(OptionsSearchEventArgs<CityDto> e)
+    {
+        var cities = await Mediator.Send(new GetAllCityQuery());
+
+        e.Items = cities.Where(i => i.Name.StartsWith(e.Text, StringComparison.OrdinalIgnoreCase))
+                              .OrderBy(i => i.Name);
+
+        await Task.CompletedTask;
+    }
+
+    
+
+
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //  if (cities is null) 
+    //      cities = await Mediator.Send(new GetAllCityQuery<int>()); 
+
+    // }
+
+}
