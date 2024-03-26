@@ -1,9 +1,10 @@
 ﻿using CarRental.Core.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Infrastructure.Data
 {
-    internal class AppDbContext : DbContext
+    internal class AppDbContext : IdentityDbContext
     {
         //todo: set to Public
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

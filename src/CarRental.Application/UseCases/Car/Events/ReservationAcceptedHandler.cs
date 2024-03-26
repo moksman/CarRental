@@ -7,16 +7,16 @@ namespace CarRental.Application.UseCases.Car.Events
 {
     internal sealed class ReservationAcceptedHandler : INotificationHandler<ReservationAcceptedDomainEvent>
     {
-        private readonly IBaseRepository<Core.Domain.Car, CarId> _repository;
+        private readonly IBaseRepository<Core.Domain.Car, Guid> _repository;
 
-        public ReservationAcceptedHandler(IBaseRepository<Core.Domain.Car, CarId> repository)
+        public ReservationAcceptedHandler(IBaseRepository<Core.Domain.Car, Guid> repository)
         {
             _repository = repository;
         }
 
         public Task Handle(ReservationAcceptedDomainEvent notification, CancellationToken cancellationToken)
         {
-            Guid carId = notification.CarId;
+            Guid Guid = notification.Guid;
             Guid customerId = notification.CustomerId;
 
             //Do your logic here

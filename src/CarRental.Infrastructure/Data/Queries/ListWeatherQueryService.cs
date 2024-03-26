@@ -19,7 +19,7 @@ internal class ListCarQueryService : IListCarQueryService
     public async Task<IList<CarDto>> ListAsync()
     {
         //var result = await _db.Cars.FromSqlRaw("SELECT * FROM Car")
-        //    .Select(c => Car.Create(c.Id, c.CityId, c.Brand, c.Model, c.Description, c.Image, c.NoOfSeats, c.Price, c.Type, c.Transmission))
+        //    .Select(c => Car.Create(c.Id, c.Guid, c.Brand, c.Model, c.Description, c.Image, c.NoOfSeats, c.Price, c.Type, c.Transmission))
         //    .ToListAsync<Car>();
 
         return null;

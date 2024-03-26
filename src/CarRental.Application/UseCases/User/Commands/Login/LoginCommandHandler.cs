@@ -4,21 +4,28 @@ using MediatR;
 
 namespace CarRental.Application.UseCases.User.Commands.Login;
 
-internal sealed class LoginCommandHandler : IRequestHandler<LoginCommand, string>
+public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, string>
 {
-    private readonly IBaseRepository<Core.Domain.User, UserId> _userRepository;
+    private readonly IBaseRepository<Core.Domain.User, Guid> _userRepository;
 
-    public LoginCommandHandler(IBaseRepository<Core.Domain.User, UserId> userRepository)
+    public LoginCommandHandler(IBaseRepository<Core.Domain.User, Guid> userRepository)
     {
         _userRepository = userRepository;
     }
 
-    public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
+    public async Task<string> Handle(
+        LoginCommand request, 
+        CancellationToken cancellationToken)
     {
         //Get user
-        //User user = await _userRepository.Get(x => x.Email == request.Email);
+        Core.Domain.User user = await _userRepository.Get(x => x.Email == request.Email);
 
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
 
+        
         //Generate token
 
         //return token

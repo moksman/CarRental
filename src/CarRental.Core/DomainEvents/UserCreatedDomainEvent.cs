@@ -3,6 +3,6 @@ using CarRental.Core.Domain;
 
 namespace CarRental.Core.DomainEvents;
 
-internal sealed record UserCreatedDomainEvent(UserId id) : IDomainEvent
+internal sealed record UserCreatedDomainEvent(Guid id) : IDomainEvent
 {
 }

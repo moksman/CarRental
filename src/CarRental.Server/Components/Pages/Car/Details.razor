@@ -44,7 +44,7 @@ else
 @code {
 
     [Parameter]
-    public int? CityId { get; set; }
+    public int? Guid { get; set; }
 
     private IEnumerable<Core.Domain.Car>? Cars;
 
@@ -54,10 +54,10 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        // if (CityId is null)
+        // if (Guid is null)
         //     Cars = await Mediator.Send(new GetAllCarQuery<int>());
         // else
-        //     Cars = await Mediator.Send(new GetCarByCityQuery<int>(CityId.Value));
+        //     Cars = await Mediator.Send(new GetCarByCityQuery<int>(Guid.Value));
 
     }
 

@@ -11,7 +11,7 @@ namespace CarRental.UnitTest
         public void Create_ShouldReturnCityWithGivenIdAndName()
         {
             // Arrange
-            CityId id = new(Guid.NewGuid());
+            Guid id = Guid.NewGuid();
             var name = "Test City";
 
             // Act
@@ -28,7 +28,7 @@ namespace CarRental.UnitTest
         public void IsSelected_ShouldBeFalseByDefault()
         {
             // Arrange
-            CityId id = new(Guid.NewGuid());
+            Guid id = Guid.NewGuid();
             var name = "Test City";
             var city = City.Create(id, name);
 
@@ -43,7 +43,7 @@ namespace CarRental.UnitTest
         public void IsSelected_ShouldBeAbleToSetTrue()
         {
             // Arrange
-            CityId id = new(Guid.NewGuid());
+            Guid id = Guid.NewGuid();
             var name = "Test City";
             var city = City.Create(id, name);
 

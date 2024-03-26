@@ -10,10 +10,10 @@ namespace CarRental.Application.UseCases.City.Queries.Get
 
     public class GetAllCityQueryHandler : IRequestHandler<GetAllCityQuery, IEnumerable<CityDto>>
     {
-        private readonly IBaseRepository<Core.Domain.City, CityId> _repository;
+        private readonly IBaseRepository<Core.Domain.City, Guid> _repository;
         private readonly CityMapper _mapper;
 
-        public GetAllCityQueryHandler(IBaseRepository<Core.Domain.City, CityId> baseRepository, CityMapper mapper)
+        public GetAllCityQueryHandler(IBaseRepository<Core.Domain.City, Guid> baseRepository, CityMapper mapper)
         {
             _repository = baseRepository;
             _mapper = mapper;

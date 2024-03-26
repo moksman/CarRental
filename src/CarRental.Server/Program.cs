@@ -2,6 +2,7 @@ using CarRental.Application.Configuration;
 using CarRental.Core;
 using CarRental.Infrastructure;
 using CarRental.Server.Components;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.FluentUI.AspNetCore.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,10 @@ builder.Services
     .ConfigurePersistance(builder.Configuration)
     .AddData();
 
+
+builder.Services.AddAuthorization();
+builder.Services.AddIdentityApiEndpoints<IdentityUser>();
+
 builder.Services.AddFluentUIComponents();
 
 var app = builder.Build();
@@ -43,10 +48,12 @@ else
 }
 
 app
-    //.UseResponseCompression() // * Compression, read to mitigate security issues BREACH, CRIME https://www.milanjovanovic.tech/blog/response-compression-in-aspnetcore
+    //.UseResponseCompression() // * Compression, read to mitigate security issues BREACH, CRIME https://www.milanjovanovic.tech/blog/response-compression-in-
     .UseHttpsRedirection()
     .UseStaticFiles()
     .UseAntiforgery();
+
+app.MapIdentityApi<IdentityUser>();
 
 app
     .MapRazorComponents<App>()

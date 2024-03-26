@@ -6,7 +6,7 @@ namespace CarRental.Infrastructure.Data.Abstractions;
 
 internal class BaseRepository<TEntity, TId> : IBaseRepository<TEntity, TId>
     where TEntity : Entity<TId>
-    where TId : class
+    //where TId : class
 {
     private readonly AppDbContext _db;
 

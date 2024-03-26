@@ -40,11 +40,11 @@ public partial class Index
     {
 
         Cities = await Mediator.Send(new GetAllCityQuery());
-        // if (CityId is null)
+        // if (Guid is null)
         Cars = await Mediator.Send(new GetAllCarQuery());
         // else
 
-        // Cars = await Mediator.Send(new GetCarByCityQuery<int>(CityId));
+        // Cars = await Mediator.Send(new GetCarByCityQuery<int>(Guid));
         
     }
 

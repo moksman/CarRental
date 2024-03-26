@@ -25,9 +25,9 @@ public class GetCarsQuery : IRequest<IEnumerable<CarDto>>
 //namespace CarRental.Application.UseCases.Car.Get;
 public class GetCarsQueryHandler : IRequestHandler<GetCarsQuery, IEnumerable<CarDto>>
 {
-    private readonly IBaseRepository<Core.Domain.Car, CarId> _repository;
+    private readonly IBaseRepository<Core.Domain.Car, Guid> _repository;
 
-    public GetCarsQueryHandler(IBaseRepository<Core.Domain.Car, CarId> repository)
+    public GetCarsQueryHandler(IBaseRepository<Core.Domain.Car, Guid> repository)
     {
         _repository = repository;
     }

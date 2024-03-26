@@ -6,11 +6,11 @@ namespace CarRental.Application.UseCases.Car.Queries.Get;
 
 public class GetCarByCityQuery : IRequest<IEnumerable<CarDto>>
 {
-    public CityId CityId { get; set; }
+    public Guid Guid { get; set; }
 
-    public GetCarByCityQuery(CityId cityId)
+    public GetCarByCityQuery(Guid cityId)
     {
-        CityId = cityId;
+        Guid = cityId;
     }
 
 }

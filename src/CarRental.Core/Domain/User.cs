@@ -3,9 +3,9 @@ using CarRental.Core.DomainEvents;
 
 namespace CarRental.Core.Domain;
 
-public class User : Entity<UserId>
+public class User : Entity<Guid>
 {
-    private User(UserId id, string email, string password, string firstName, string lastName, string phoneNumber, string? image) : base(id)
+    private User(Guid id, string email, string password, string firstName, string lastName, string phoneNumber, string? image) : base(id)
     {
         Email = email;
         Password = password;
@@ -22,7 +22,7 @@ public class User : Entity<UserId>
     public string PhoneNumber { get; private set; }
     public string? Image { get; private set; }
 
-    public static User Create(UserId id, string email, string password, string firstName, string lastName, string phoneNumber, string? image)
+    public static User Create(Guid id, string email, string password, string firstName, string lastName, string phoneNumber, string? image)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(email, nameof(email));
         ArgumentException.ThrowIfNullOrWhiteSpace(password, nameof(password));

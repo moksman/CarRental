@@ -14,13 +14,13 @@ namespace CarRental.Application.UseCases.Car.Queries.Get
     public class GetAllCarQueryHandler : IRequestHandler<GetAllCarQuery, IEnumerable<CarDto>>
     {
         //private readonly IService<Core.Domain.Car> _carService;
-        private readonly IBaseRepository<Core.Domain.Car, CarId> _repository;
+        private readonly IBaseRepository<Core.Domain.Car, Guid> _repository;
         private readonly IMemoryCache _cache;
         private readonly CarMapper _mapper;
 
 
         //public GetAllCarQueryHandler(IService<Core.Domain.Car> carService, IBaseRepository<Core.Domain.Car> repository, IMemoryCache cache)
-        public GetAllCarQueryHandler(IBaseRepository<Core.Domain.Car, CarId> repository, CarMapper mapper, IMemoryCache cache)
+        public GetAllCarQueryHandler(IBaseRepository<Core.Domain.Car, Guid> repository, CarMapper mapper, IMemoryCache cache)
         {
             _repository = repository;
             _cache = cache;

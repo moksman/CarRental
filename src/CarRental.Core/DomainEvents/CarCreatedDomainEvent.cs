@@ -2,4 +2,4 @@
 
 namespace CarRental.Core.DomainEvents;
 
-public sealed record CarCreatedDomainEvent(Core.Domain.CarId CarId) : IDomainEvent;
+public sealed record CarCreatedDomainEvent(Guid Guid) : IDomainEvent;

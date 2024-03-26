@@ -4,11 +4,11 @@ using CarRental.Core.Enums;
 
 namespace CarRental.Core.Domain;
 
-public sealed class Car : Entity<CarId>
+public sealed class Car : Entity<Guid>
 {
   
 
-    private Car(CarId id, CityId cityId, string brand, string model, string description, string? image, int noOfSeats, decimal? price, VehiculeType type, TransmissionType transmission) : base(id)
+    private Car(Guid id, Guid cityId, string brand, string model, string description, string? image, int noOfSeats, decimal? price, VehiculeType type, TransmissionType transmission) : base(id)
     {
         CityId = cityId;
         Brand = brand;
@@ -21,7 +21,7 @@ public sealed class Car : Entity<CarId>
         Transmission = transmission;
     }
 
-    public CityId CityId { get; private set; }
+    public Guid CityId { get; private set; }
 
     //Normally avoid using primitive types in domain model (use concrete types), but for simplicity I use string.
     public string Brand { get; private set; }
@@ -37,7 +37,7 @@ public sealed class Car : Entity<CarId>
 
     public TransmissionType Transmission { get; private set; }
 
-    public static Car Create(CarId id, CityId cityId, string brand, string model, string description, string? image, int noOfSeats, decimal? price, VehiculeType type, TransmissionType transmission)
+    public static Car Create(Guid id, Guid cityId, string brand, string model, string description, string? image, int noOfSeats, decimal? price, VehiculeType type, TransmissionType transmission)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(brand, nameof(brand));
         ArgumentException.ThrowIfNullOrWhiteSpace(model, nameof(model));
@@ -45,7 +45,7 @@ public sealed class Car : Entity<CarId>
 
         Car car = new(id, cityId, brand, model, description, image, noOfSeats, price, type, transmission);
 
-        car.Raise(new CarCreatedDomainEvent(car.Id));
+        car.Raise(new CarCreatedDomainEvent(id));
 
         return car;
     }

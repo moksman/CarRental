@@ -11,11 +11,11 @@ namespace CarRental.Application.UseCases.Car.Queries.Get
     public class GetCarByCityQueryHandler : IRequestHandler<GetCarByCityQuery, IEnumerable<CarDto>>
     {
         //private readonly IService<Core.Domain.Car> _carService;
-        private readonly IBaseRepository<Core.Domain.Car, CarId> _repository;
+        private readonly IBaseRepository<Core.Domain.Car, Guid> _repository;
         private readonly CarMapper _mapper;
 
         //public GetCarByCityQueryHandler(IService<Core.Domain.Car> carService)
-        public GetCarByCityQueryHandler(IBaseRepository<Core.Domain.Car, CarId> repository, CarMapper mapper)
+        public GetCarByCityQueryHandler(IBaseRepository<Core.Domain.Car, Guid> repository, CarMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
